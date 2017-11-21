@@ -8,7 +8,11 @@ void main()
   printf("\nb= ");
   scanf("%d",&b);
   printf("\nc= ");
+<<<<<<< HEAD
   scanf("%d",&a);
+=======
+  scanf("%d",&c);
+>>>>>>> origin/master
   if(a>b){
     if(a>c){
       max=a;
