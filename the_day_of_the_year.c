@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 int main()
 {
     int d,m,y, pd, l, n;
