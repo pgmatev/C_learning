@@ -2,6 +2,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int calculator(){
+    float a,b;
+    char c;
+    printf("First number is ");
+    scanf("%f",&a);
+    do{
+        do{
+            printf("\nThe operation is ");
+            scanf("%c",&c);
+            scanf("%c",&c);
+        }while(c!='+' && c!='-' && c!='*' && c!='/' && c!='=');
+        if(c!='='){
+            printf("\nNumber ");
+            scanf("%f",&b);}
+        switch(c){
+        case '+': a+=b;break;
+        case '-': a-=b;break;
+        case '*': a*=b;break;
+        case '/': while(b==0){
+                        printf("\nPlease enter a number different from zero: ");
+                        scanf("%f",&b);
+                        }
+                a/=b;break;
+        case '=': break;
+        }
+    }while(c!='=');
+    printf("\n%f",a);
+    return 0;
+}
+
 void theevendigitsofn()
 {
     int n, a, m, i;
@@ -223,38 +253,33 @@ void maxofnnumbers(){
   printf("\nThe biggest number is %d",max);
 }
 void maxofnnumbersdel3() {
-  int n,i,a,max;
+  int n,i,a,max,ok=0;
   do {
     printf("The amount of numbers is ");
     scanf("%d",&n);
   } while(n<1);
   i=1;
-  if(i<=n){
+  while(i<=n){
     printf("\na=");
     scanf("%d",&a);
     i++;
-    while(a%3==0){
+    if(a%3==0){
       max=a;
-      if(i<=n){
-        printf("\na=");
-        scanf("%d",&a);
-        if(a%3==0){
-          if(a>max){
-            max=a;
-            i++;
-          }
-          else{
-            i++;
-          }
-        }
-        else{
-          i++;
-        }
-      }
-      }
-      printf("\nThe biggest number is %d",max);
-      printf("\nThere are no numbers matching the condition");
+      ok=1;
+      break;
     }
+  }
+  while(i<=n){
+    printf("\na=");
+    scanf("%d",&a);
+    i++;
+    if(a%3==0 && a>max)
+            max=a;
+  }
+  if(ok==1)
+      printf("\nThe biggest number is %d",max);
+  else
+      printf("\nThere is no such number.");
 }
 void maxod3numbers()
 {
@@ -513,11 +538,12 @@ int main(){
     printf("\n12. Max of 3 numbers");
     printf("\n13. Max of 3 numbers v2");
     printf("\n14. Yesterday and tomorrow");
-    printf("\n15. Fibonaci");
+    printf("\n15. The greatest fibonaci number smaller than 'n'");
     printf("\n16. Average score in class");
     printf("\n17. ASCII tells you what symbol it is");
     printf("\n18. a becomes A");
-    printf("\n19. Exit\n");
+    printf("\n19. Calculator");
+    printf("\n20. Exit\n");
     scanf("%d",&op);
     switch(op){
       case 1: theevendigitsofn();break;
@@ -538,11 +564,12 @@ int main(){
       case 16: averagescore();break;
       case 17: asciitellsyouwhatsymbolthatis();break;
       case 18: abecomesA();break;
-      case 19: break;
+      case 19: calculator();break;
+      case 20: break;
       default: printf("\nIncorrect option.");break;
     }
     printf("\nPress a key to continue.");
     getch();
-  }while(op!=19);
+  }while(op!=20);
   return 0;
 }
