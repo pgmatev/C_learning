@@ -199,19 +199,12 @@ void sum1ton(){
   for(;i<=n;i++)sum+=i;
   printf("\nThe sum is %d",sum);
 }
-char ascii()
-{
-    char F=0,ASCII;
-    do
-    {
-        printf("\n%c",F);
-        F++;
-        if(F%20==0){
-            ASCII=getch();
-        }
-    }
-    while(F<255);
-
+void ascii(){
+    unsigned char a;
+    do{
+        printf("\nPress a symbol");
+        a=getch();
+        printf("\n%d",a);}while(1);
 }
 void primeornotprime()
 {
@@ -468,7 +461,7 @@ char asciitellsyouwhatsymbolthatis()
 {
     char i;
     do{
-        printf("GIVE ME A FUCKING SYMBOL \n");
+        printf("Give me a symbol \n");
         scanf("%c",&i);
     }while(i<0 || i>127);
     if(i>=48 && i<=57)
@@ -478,7 +471,7 @@ char asciitellsyouwhatsymbolthatis()
     if(i>=65 && i<=90)
         printf("it's a capital letter\n");
     else
-        printf("it's something else yet to be discovered by NASA\n.\n.\n.\n.\n.\n.\nkys fag\n\n");
+        printf("It's a different symbol");
         return 0;
 }
 int abecomesA()
@@ -520,31 +513,60 @@ void maxof3numbersv2()
 }
 
 int main(){
+  unsigned char a;
   int op;
+  op=1;
   do{
+    do{
     system("cls");
     printf("Choose a task");
-    printf("\n1. The even digits of n");
-    printf("\n2. The day of the year");
-    printf("\n3. Time travelled");
-    printf("\n4. Swap two variables");
-    printf("\n5. Sum random numbers");
-    printf("\n6. Sum n numbers dividing 3");
-    printf("\n7. Sum 1 to n");
-    printf("\n8. ASCII");
-    printf("\n9. Prime or not prime");
-    printf("\n10. Max of n numbers");
-    printf("\n11. Max of n numbers del 3");
-    printf("\n12. Max of 3 numbers");
-    printf("\n13. Max of 3 numbers v2");
-    printf("\n14. Yesterday and tomorrow");
-    printf("\n15. The greatest fibonaci number smaller than 'n'");
-    printf("\n16. Average score in class");
-    printf("\n17. ASCII tells you what symbol it is");
-    printf("\n18. a becomes A");
-    printf("\n19. Calculator");
-    printf("\n20. Exit\n");
-    scanf("%d",&op);
+    if(op==1)printf("\n>1. The even digits of n");
+    else printf("\n 1. The even digits of n");
+    if(op==2)printf("\n>2. The day of the year");
+    else printf("\n 2. The day of the year");
+    if(op==3)printf("\n>3. Time travelled");
+    else printf("\n 3. Time travelled");
+    if(op==4)printf("\n>4. Swap two variables");
+    else printf("\n 4. Swap two variables");
+    if(op==5)printf("\n>5. Sum random numbers");
+    else printf("\n 5. Sum random numbers");
+    if(op==6)printf("\n>6. Sum n numbers dividing 3");
+    else printf("\n 6. Sum n numbers dividing 3");
+    if(op==7)printf("\n>7. Sum 1 to n");
+    else printf("\n 7. Sum 1 to n");
+    if(op==8)printf("\n>8. ASCII");
+    else printf("\n 8. ASCII");
+    if(op==9)printf("\n>9. Prime or not prime");
+    else printf("\n 9. Prime or not prime");
+    if(op==10)printf("\n>10. Max of n numbers");
+    else printf("\n 10. Max of n numbers");
+    if(op==11)printf("\n>11. Max of n numbers del 3");
+    else printf("\n 11. Max of n numbers del 3");
+    if(op==12)printf("\n>12. Max of 3 numbers");
+    else printf("\n 12. Max of 3 numbers");
+    if(op==13)printf("\n>13. Max of 3 numbers v2");
+    else printf("\n 13. Max of 3 numbers v2");
+    if(op==14)printf("\n>14. Yesterday and tomorrow");
+    else printf("\n 14. Yesterday and tomorrow");
+    if(op==15)printf("\n>15. The greatest fibonaci number smaller than 'n'");
+    else printf("\n 15. The greatest fibonaci number smaller than 'n'");
+    if(op==16)printf("\n>16. Average score in class");
+    else printf("\n 16. Average score in class");
+    if(op==17)printf("\n>17. ASCII tells you what symbol it is");
+    else printf("\n 17. ASCII tells you what symbol it is");
+    if(op==18)printf("\n>18. a becomes A");
+    else printf("\n 18. a becomes A");
+    if(op==19)printf("\n>19. Calculator");
+    else printf("\n 19. Calculator");
+    if(op==20)printf("\n>20. Exit\n");
+    else printf("\n 20. Exit\n");
+    a=getch();
+    if(a==224){
+        a=getch();
+        if(a==80)op++;
+        if(a==72)op--;
+    }
+    }while(a!=13);
     switch(op){
       case 1: theevendigitsofn();break;
       case 2: thedayoftheyear();break;
