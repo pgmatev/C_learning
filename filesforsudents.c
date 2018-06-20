@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
 typedef struct{
     int number;
@@ -12,22 +13,24 @@ void my_write(char *filename){
     FILE *f;
     tstudent s;
     int i;
-     int n, k;
+    int n, k;
     do{
     printf("\nEnter the amount of students: ");
     scanf("%d", &n);
     }while(n<0);
     f=fopen(filename, "wb");
-    for(k<0; k<n; k++){
+    for(k=0; k<n; k++){
         if(f){
             printf("\nEnter the number of the student: ");
             scanf("%d",&s.number);
             getchar();
             printf("\nEnter the name of the student: ");
             gets(s.name);
-            for(i=0; i<20; i++){
-                printf("\Enter the mark of the student for subject %d: ", i++);
+            for(i=1; i=20; i++){
+                do{
+                printf("\nEnter the mark of the student: ");
                 scanf("%d", &s.marks[i]);
+              }while(s.marks[i]>6 || s.marks[i]==1 || s.marks[i]<0);
                 if(s.marks[i]==0){
                     break;
                 }
@@ -38,6 +41,19 @@ void my_write(char *filename){
         else printf("\n\nError: 696969 \nThe file could not open!\n\n");
     }
     fclose(f);
+}
+void my_read(char *filename){
+  FILE *f;
+  char s[100];
+  f=fopen(filename, "r");
+  if(f){
+    while(!feof(f)){
+      if(fgets(s,60,f))
+        printf("%s\n",f);
+    }
+    fclose(f);
+  }
+  else printf("\n\nError: 696969 \nThe file could not open!\n\n");
 }
 
 int main()
@@ -71,7 +87,7 @@ int main()
     }while(a!=13);
     switch(op){
       case 1: my_write(filename); break;
-      case 2: break;
+      case 2: my_read(filename); break;
       case 3: break;
       case 4: break;
       case 5: break;

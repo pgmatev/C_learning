@@ -9,7 +9,6 @@ void main()
     printf("\nAmount of numbers in the array: ");
     scanf("%d",&n);
   }while(n<1 || n>30000);
-  int sorted=1;
   for(i=0; i<n-1; i++)
   {
     a[i]=rand()%n+1;
@@ -17,13 +16,15 @@ void main()
   for(i=0; i<n-1; i++)
   {
     int current=a[i];
-    int j=i-1;
+    int j=i+1;
     while(j>=0 && a[j]>current)
     {
-      a[j+1]=a[j];
-      j--;
+      int c=a[j];
+      a[j]=a[i];
+      a[i]=c;
+      j++;
     }
-    a[j+1] = current;
+    a[j] = current;
   }
   for(int m=0; m<n-1; n++)
   {
