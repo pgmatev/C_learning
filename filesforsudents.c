@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#define SIZE 1000
 
 typedef struct{
     int number;
@@ -19,38 +20,39 @@ void my_write(char *filename){
     scanf("%d", &n);
     }while(n<0);
     f=fopen(filename, "wb");
-    for(k=0; k<n; k++){
-        if(f){
+    if(f){
+      for(k=0; k<n; k++){
             printf("\nEnter the number of the student: ");
             scanf("%d",&s.number);
+            fprintf(f,"\n\nNUmber:%d.",s.number);
             getchar();
             printf("\nEnter the name of the student: ");
             gets(s.name);
+            fprintf(f,"Name:%s",s.name);
             for(i=1; i=20; i++){
                 do{
                 printf("\nEnter the mark of the student: ");
                 scanf("%d", &s.marks[i]);
-              }while(s.marks[i]>6 || s.marks[i]==1 || s.marks[i]<0);
+                }while(s.marks[i]>6 || s.marks[i]==1 || s.marks[i]<0);
                 if(s.marks[i]==0){
                     break;
                 }
+                fprintf(f,"Mark:%d",s.marks[i]);
                 s.average+=s.marks[i];
             }
             s.average=s.average/i;
+            fprintf(f, "Average:%d", s.average);
         }
+      }
         else printf("\n\nError: 696969 \nThe file could not open!\n\n");
-    }
     fclose(f);
 }
 void my_read(char *filename){
   FILE *f;
-  char s[100];
-  f=fopen(filename, "r");
+  int i, r;
+  f=fopen(filename, "rb");
   if(f){
-    while(!feof(f)){
-      if(fgets(s,60,f))
-        printf("%s\n",f);
-    }
+  //in development
     fclose(f);
   }
   else printf("\n\nError: 696969 \nThe file could not open!\n\n");
